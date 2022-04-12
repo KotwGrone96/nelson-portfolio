@@ -47,6 +47,20 @@ window.addEventListener('scroll', () => {
   }
 });
 
+//?-----PORTFOLIO HOVER-----
+
+const portfolioItems = Object.values(
+  document.querySelector('.portfolio-proyects').children
+);
+portfolioItems.forEach((item) => {
+  item.addEventListener('mouseenter', () => {
+    item.children[1].style.margin = 0;
+  });
+  item.addEventListener('mouseleave', () => {
+    item.children[1].style.marginTop = '100%';
+  });
+});
+
 // //?-----NAV HOVER BUTTONS-----
 // navDesktop.forEach((a) => {
 //   a.addEventListener('mouseenter', () => {

@@ -1,0 +1,133 @@
+#about {
+  padding: 84px 0;
+  .about-title {
+    h2 {
+      padding: 1em 0;
+    }
+    p {
+      text-align: center;
+      padding: 0 1em;
+      font-size: 1.2rem;
+      color: $lightBlack;
+    }
+  }
+  .about-img {
+    width: 150px;
+    margin: 0 auto;
+    padding: 1.5em 0;
+    position: relative;
+    z-index: 0;
+    img {
+      width: 100%;
+      border-radius: 15px;
+      border: 1px solid $black;
+      overflow: hidden;
+    }
+    &::before {
+      content: '';
+      @include positionAbsoluteTopLeft(60px, -70px, -1);
+      width: 100%;
+      height: 83%;
+      border: 3px solid $primary;
+      border-radius: 15px;
+    }
+  }
+
+  .about-skills {
+    padding-top: 50px;
+    p {
+      text-align: center;
+      padding: 0 1em;
+      font-size: 1.2rem;
+      color: $lightBlack;
+    }
+    .skills {
+      display: grid;
+      grid-template-columns: 150px 150px;
+      justify-content: center;
+      align-items: center;
+      padding: 1em 0;
+      figure {
+        @include displayFlex(flex-start, center);
+        img {
+          width: 50px;
+          height: 50px;
+          object-fit: contain;
+        }
+        figcaption {
+          font-size: 1.2rem;
+          font-weight: 500;
+          padding-left: 10px;
+        }
+        &:first-child {
+          img {
+            filter: invert(67%) sepia(55%) saturate(6343%) hue-rotate(344deg)
+              brightness(97%) contrast(95%);
+          }
+        }
+        &:nth-child(2) {
+          img {
+            filter: invert(73%) sepia(48%) saturate(569%) hue-rotate(156deg)
+              brightness(100%) contrast(98%);
+          }
+        }
+        &:nth-child(3) {
+          img {
+            filter: invert(27%) sepia(85%) saturate(2172%) hue-rotate(216deg)
+              brightness(98%) contrast(93%);
+          }
+        }
+        &:nth-child(4) {
+          img {
+            filter: invert(70%) sepia(34%) saturate(4069%) hue-rotate(293deg)
+              brightness(87%) contrast(82%);
+          }
+        }
+        &:nth-child(5) {
+          img {
+            filter: invert(87%) sepia(79%) saturate(5793%) hue-rotate(321deg)
+              brightness(112%) contrast(88%);
+          }
+        }
+        &:nth-child(6) {
+          img {
+            filter: invert(51%) sepia(83%) saturate(4759%) hue-rotate(344deg)
+              brightness(98%) contrast(92%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width:768px) {
+  #about {
+    .about-title {
+      h2 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+    }
+    position: relative;
+    .about-img {
+      position: relative;
+      top: 25px;
+      left: -175px;
+      width: 200px;
+      &::before {
+        height: 90%;
+      }
+    }
+    .about-skills {
+      width: max-content;
+      position: absolute;
+      top: 325px;
+      right: 0px;
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

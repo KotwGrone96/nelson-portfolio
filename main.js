@@ -17,6 +17,14 @@ closeBtn.addEventListener('click', () => {
   setTimeout(() => (navResponsive.style.transition = 'none'), 500);
 });
 
+Object.values(navResponsive.children).forEach((a) => {
+  a.addEventListener('click', () => {
+    navResponsive.style.transition = 'all .5s';
+    navResponsive.style.marginLeft = '-100vw';
+    setTimeout(() => (navResponsive.style.transition = 'none'), 500);
+  });
+});
+
 //?-----HEADER SCROLL-----
 const header = document.querySelector('header');
 const navDesktop = Object.values(

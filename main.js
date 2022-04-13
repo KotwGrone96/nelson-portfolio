@@ -1,6 +1,6 @@
 import './style.scss';
 
-//?-----NAV BUTTON------
+//?-----NAV BUTTON RESPONSIVE------
 const openBtn = document.getElementById('nav-open');
 const closeBtn = document.getElementById('nav-close');
 const navResponsive = document.getElementById('nav-responsive');
@@ -27,24 +27,59 @@ Object.values(navResponsive.children).forEach((a) => {
 
 //?-----HEADER SCROLL-----
 const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY >= 25) {
+    header.style.backgroundColor = '#004a8c';
+  } else {
+    header.style.backgroundColor = 'transparent';
+  }
+});
+
+//?-----SCROLL NAV BUTTONS DESKTOP-----
 const navDesktop = Object.values(
   document.querySelector('.nav-desktop').children
 );
 
-navDesktop[0].style.color = '#3ca4ff';
+window.addEventListener('load', () => {
+  const aboutSection = document.getElementById('about');
+  const portfolioSection = document.getElementById('portfolio');
+  const contactSection = document.getElementById('contact');
+  let aboutSectionOffset = aboutSection.offsetTop - 90;
+  let portfolioSectionOffset = portfolioSection.offsetTop - 100;
+  let contactSectionOffset = contactSection.offsetTop - 100;
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY >= 25) {
-    header.style.backgroundColor = '#004a8c';
-    // navDesktop.forEach((a) => {
-    //   a.style.color = '#fff';
-    // });
-  } else {
-    header.style.backgroundColor = 'transparent';
-    // navDesktop.forEach((a) => {
-    //   a.style.color = '#000';
-    // });
+  if (window.scrollY < aboutSectionOffset) {
+    navDesktop[0].style.color = '#3ca4ff';
   }
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < aboutSectionOffset) {
+      navDesktop[0].style.color = '#3ca4ff';
+    } else navDesktop[0].style.color = '#fff';
+
+    if (
+      window.scrollY >= aboutSectionOffset &&
+      window.scrollY < portfolioSectionOffset
+    ) {
+      navDesktop[1].style.color = '#3ca4ff';
+    } else navDesktop[1].style.color = '#fff';
+
+    if (
+      window.scrollY >= portfolioSectionOffset &&
+      window.scrollY < contactSectionOffset
+    ) {
+      navDesktop[2].style.color = '#3ca4ff';
+    } else navDesktop[2].style.color = '#fff';
+
+    if (window.scrollY >= contactSectionOffset) {
+      navDesktop[3].style.color = '#3ca4ff';
+    } else navDesktop[3].style.color = '#fff';
+  });
+
+  navDesktop.forEach((a) => {
+    a.addEventListener('mouseenter', () => (a.style.color = '#3ca4ff'));
+    a.addEventListener('mouseleave', () => (a.style.color = '#fff'));
+  });
 });
 
 //?-----PORTFOLIO HOVER-----

@@ -38,13 +38,13 @@
           <a href="#">Inicio</a>
           <a href="#about">Sobre Mi</a>
           <a href="#portfolio">Portfolio</a>
-          <a href="#">Contacto</a>
+          <a href="#contact">Contacto</a>
         </nav>
         <nav class="nav-desktop">
           <a href="#">Inicio</a>
           <a href="#about">Sobre Mi</a>
           <a href="#portfolio">Portfolio</a>
-          <a href="#">Contacto</a>
+          <a href="#contact">Contacto</a>
         </nav>
       </header>
       <div class="banner__info">
@@ -193,7 +193,47 @@
           </div>
         </div>
       </section>
-      <section id="contact"></section>
+      <section id="contact">
+        <div class="contact-title">
+          <h2>Contacto</h2>
+          <p>
+            Mándame un mail para que podamos ponernos en contacto y hacer tu
+            proyecto una realidad 🙂 <br />
+            Espero tu mensaje 📧
+          </p>
+        </div>
+        <form id="form" action="https://formspree.io/f/xnqwgvjo" method="POST">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Nombre"
+            required
+          />
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder="Apellido"
+            required
+          />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="E-mail"
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="Tel / Celular"
+          />
+          <textarea name="content" id="content"></textarea>
+          <input type="submit" value="Enviar" />
+        </form>
+      </section>
     </main>
     <footer>
       <h3>Diseño y desarrollo por Nelson Gamero</h3>

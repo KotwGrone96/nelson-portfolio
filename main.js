@@ -61,20 +61,26 @@ portfolioItems.forEach((item) => {
   });
 });
 
-// //?-----NAV HOVER BUTTONS-----
-// navDesktop.forEach((a) => {
-//   a.addEventListener('mouseenter', () => {
-//     if (window.scrollY >= 25) {
-//       a.style.color = '#3ca4ff';
-//       return;
-//     }
-//     a.style.color = '#004a8c';
-//   });
-//   a.addEventListener('mouseleave', () => {
-//     if (window.scrollY >= 25) {
-//       a.style.color = '#fff';
-//       return;
-//     }
-//     a.style.color = '#000';
-//   });
-// });
+//?-----FORM SECTION-----
+
+const form = document.getElementById('form');
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const res = await fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      Accept: 'application/json',
+    },
+  });
+  if (res.ok) {
+    alert('mensaje eviado');
+    form.reset();
+    return;
+  } else {
+    alert('Ha ocurrido un error');
+  }
+};
+
+form.addEventListener('submit', handleSubmit);

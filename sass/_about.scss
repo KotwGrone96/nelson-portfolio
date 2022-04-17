@@ -9,6 +9,13 @@
       padding: 0 1em;
       font-size: 1.2rem;
       color: $lightBlack;
+      word-spacing: 1px;
+      span {
+        color: $bannerBackGround;
+        font-size: 1.2rem;
+        font-weight: 600;
+        font-style: italic;
+      }
     }
   }
   .about-img {
@@ -95,6 +102,12 @@
               brightness(98%) contrast(92%);
           }
         }
+        &:nth-child(7) {
+          img {
+            filter: invert(56%) sepia(15%) saturate(1025%) hue-rotate(68deg)
+              brightness(100%) contrast(87%);
+          }
+        }
       }
     }
   }
@@ -108,6 +121,9 @@
       }
       p {
         font-size: 1.3rem;
+        span {
+          font-size: 1.3rem;
+        }
       }
     }
     position: relative;

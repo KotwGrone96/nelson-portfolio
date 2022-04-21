@@ -9,7 +9,7 @@ export default function form() {
   const inputEmail = document.getElementById('email');
   const emailRegex = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
   const inputPhone = document.getElementById('phone');
-  const phoneRegex = /^([0-9]*){9,20}$/;
+  const phoneRegex = /^([0-9]){9,20}$/;
   const content = document.getElementById('content');
   const contentRagex = /^.{4,256}$/;
 

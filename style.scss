@@ -19,6 +19,9 @@ body {
   overflow-x: hidden;
   position: relative;
   main {
+    .input-alert {
+      display: none;
+    }
     width: 100%;
     min-height: 100vh;
     background-color: #f6f6f6;

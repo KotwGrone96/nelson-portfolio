@@ -1,4 +1,7 @@
 import './style.scss';
+import validationForm from './form/form';
+
+validationForm();
 
 // ?-----NAV BUTTON RESPONSIVE------
 const openBtn = document.getElementById('nav-open');

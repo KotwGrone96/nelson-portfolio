@@ -215,30 +215,52 @@
             type="text"
             id="name"
             name="name"
-            placeholder="Nombre"
+            placeholder="Nombre y apellido"
             required
+            maxlength="30"
           />
+          <p class="input-alert" style="color:#f00;">
+            Solo mayúsculas, minúsculas y un espacio entre palabras
+          </p>
           <input
             type="text"
-            id="lastName"
-            name="lastName"
-            placeholder="Apellido"
+            id="subject"
+            name="subject"
+            placeholder="Asunto"
             required
+            maxlength="30"
           />
+          <p class="input-alert" style="color:#f00;">
+            Solo mayúsculas, minúsculas y un espacio entre palabras
+          </p>
           <input
             type="email"
             id="email"
             name="email"
             placeholder="E-mail"
             required
+            maxlength="30"
           />
+          <p class="input-alert" style="color:#f00;">Ingrese un email válido</p>
           <input
             type="tel"
             name="phone"
             id="phone"
             placeholder="Tel / Celular"
+            maxlength="20"
           />
-          <textarea name="content" id="content"></textarea>
+          <p class="input-alert" style="color:#f00;">
+            Ingrese un celular/teléfono válido sin espacios
+          </p>
+          <textarea
+            name="content"
+            id="content"
+            maxlength="256"
+            placeholder="Escriba aquí su mensaje"
+          ></textarea>
+          <p class="input-alert" style="color:#f00;">
+            Número de caracteres min 4 máx 256
+          </p>
           <input type="submit" value="Enviar" />
         </form>
       </section>

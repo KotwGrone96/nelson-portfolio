@@ -65,6 +65,35 @@
     .nav-desktop {
       display: none;
     }
+    .lang-menu {
+      position: absolute;
+      top: 35px;
+      right: 30px;
+      outline: none;
+      border: 1px solid $white;
+      padding: 0.5em;
+      border-radius: 17px;
+      font-weight: 500;
+      background-color: $primary;
+      color: $white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      ul {
+        @include positionAbsoluteTopLeft(35px, 0, -1);
+        width: 100%;
+        opacity: 0;
+        display: none;
+        li {
+          padding: 0.5em;
+          color: $white;
+          border: 1px solid $white;
+          background-color: $bannerBackGround;
+          &:hover {
+            background-color: $primary;
+          }
+        }
+      }
+    }
   }
 
   //  ----------BANNER TEXT/IMAGE-------------------
@@ -130,6 +159,7 @@
   .banner {
     header {
       .nav-responsive,
+      .lang-menu,
       .nav-open {
         display: none;
       }

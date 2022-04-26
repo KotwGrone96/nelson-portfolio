@@ -28,6 +28,28 @@ Object.values(navResponsive.children).forEach(a => {
   });
 });
 
+// ?-----LANG OPTION RESPONSIVE------
+const $langMenu = document.querySelector('.lang-menu');
+const $langOptions = document.querySelector('.lang-options');
+let langMenuIsOpen = false;
+$langMenu.addEventListener('click', () => {
+  if (!langMenuIsOpen) {
+    $langOptions.style.display = 'block';
+    $langOptions.style.opacity = '0';
+    $langOptions.style.transition = 'opacity 1s';
+    setTimeout(() => {
+      $langOptions.style.opacity = '1';
+    });
+    langMenuIsOpen = true;
+  } else {
+    $langOptions.style.opacity = 0;
+    setTimeout(() => {
+      $langOptions.style.display = 'none';
+    }, 1000);
+    langMenuIsOpen = false;
+  }
+});
+
 // ?-----HEADER SCROLL-----
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {

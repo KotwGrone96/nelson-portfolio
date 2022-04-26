@@ -50,14 +50,21 @@ const langMenuOptions = Object.values($langOptions.children);
 langMenuOptions.forEach(e => {
   e.addEventListener('click', () => {
     const lang = e.classList.item(0);
-    const url = location.href;
     if (location.pathname === '/' && lang === 'es') return;
-    if (location.pathname === '/' && lang === 'en') {
-      window.location.href = url + lang;
+    if (
+      (location.pathname === '/' ||
+        location.pathname === '/' + location.hash) &&
+      lang === 'en'
+    ) {
+      window.location.href = `${location.protocol}//${location.host}/en`;
       return;
     }
-    if (location.pathname === '/en' && lang === 'en') return;
-    if (location.pathname === '/en' && lang === 'es') {
+    if (location.pathname === '/en/' && lang === 'en') return;
+    if (
+      (location.pathname === '/en/' ||
+        location.pathname === '/en/' + location.hash) &&
+      lang === 'es'
+    ) {
       window.location.href = location.origin;
       return;
     }

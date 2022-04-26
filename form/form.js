@@ -6,6 +6,7 @@ export default function form() {
   const inputName = document.getElementById('name');
   const nameRegex = /^([a-zñáéíóúA-ZÁÉÍÓÚÑ]+[\s]?)+[A-Za-zñÑáéíóúÁÉÍÓÚ]+$/;
   const inputSubject = document.getElementById('subject');
+  const subjectRagex = /^([a-zñáéíóúA-ZÁÉÍÓÚÑ0-9-_]+[\s]?)+[A-Za-zñÑáéíóúÁÉÍÓÚ0-9]+$/;
   const inputEmail = document.getElementById('email');
   const emailRegex = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
   const inputPhone = document.getElementById('phone');
@@ -30,7 +31,7 @@ export default function form() {
 
   //INPUT SUBJECT
   inputSubject.addEventListener('keyup', e => {
-    let reg = nameRegex.test(e.target.value);
+    let reg = subjectRagex.test(e.target.value);
     if (!reg) {
       inputSubject.style.borderRadius = '15px';
       inputSubject.style.border = '2px solid red';

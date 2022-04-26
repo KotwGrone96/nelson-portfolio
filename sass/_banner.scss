@@ -15,9 +15,6 @@
     .header-logo {
       width: 90px;
       height: 90px;
-      .logo-desktop {
-        display: none;
-      }
       .logo-responsive {
         width: 100%;
         height: 100%;
@@ -159,9 +156,11 @@
   .banner {
     header {
       .nav-responsive,
-      .lang-menu,
       .nav-open {
         display: none;
+      }
+      .lang-menu {
+        top: 40px;
       }
       .header-logo {
         background-color: #0007;
@@ -214,6 +213,16 @@
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .banner {
+    header {
+      .lang-menu {
+        right: 10%;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 1700px) {
   .banner {
     header {
@@ -221,6 +230,9 @@
         position: relative;
         top: 0;
         left: 115px;
+      }
+      .lang-menu {
+        right: 15%;
       }
     }
   }

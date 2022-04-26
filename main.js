@@ -31,23 +31,37 @@ Object.values(navResponsive.children).forEach(a => {
 // ?-----LANG OPTION RESPONSIVE------
 const $langMenu = document.querySelector('.lang-menu');
 const $langOptions = document.querySelector('.lang-options');
-let langMenuIsOpen = false;
-$langMenu.addEventListener('click', () => {
-  if (!langMenuIsOpen) {
-    $langOptions.style.display = 'block';
-    $langOptions.style.opacity = '0';
-    $langOptions.style.transition = 'opacity 1s';
-    setTimeout(() => {
-      $langOptions.style.opacity = '1';
-    });
-    langMenuIsOpen = true;
-  } else {
-    $langOptions.style.opacity = 0;
-    setTimeout(() => {
-      $langOptions.style.display = 'none';
-    }, 1000);
-    langMenuIsOpen = false;
-  }
+
+$langMenu.addEventListener('mouseenter', () => {
+  $langOptions.style.display = 'block';
+  $langOptions.style.opacity = '0';
+  $langOptions.style.transition = 'opacity 1s';
+  setTimeout(() => {
+    $langOptions.style.opacity = '1';
+  });
+});
+
+$langMenu.addEventListener('mouseleave', () => {
+  $langOptions.style.opacity = 0;
+  $langOptions.style.display = 'none';
+});
+
+const langMenuOptions = Object.values($langOptions.children);
+langMenuOptions.forEach(e => {
+  e.addEventListener('click', () => {
+    const lang = e.classList.item(0);
+    const url = location.href;
+    if (location.pathname === '/' && lang === 'es') return;
+    if (location.pathname === '/' && lang === 'en') {
+      window.location.href = url + lang;
+      return;
+    }
+    if (location.pathname === '/en' && lang === 'en') return;
+    if (location.pathname === '/en' && lang === 'es') {
+      window.location.href = location.origin;
+      return;
+    }
+  });
 });
 
 // ?-----HEADER SCROLL-----

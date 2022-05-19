@@ -56,4 +56,33 @@ export default function scroll() {
       a.addEventListener('mouseleave', () => (a.style.color = '#fff'));
     });
   });
+
+  // ?-----SCROLL ANIMATION SECTION-----
+
+  const $portfolioSection = document.getElementById(
+    'portfolio'
+  ) as HTMLDivElement;
+
+  const $portfolioH2 = $portfolioSection.children[0] as HTMLHeadingElement;
+  const $portfolioProjects = $portfolioSection.children[1] as HTMLDivElement;
+  const $projectOne = $portfolioProjects.children[0] as HTMLDivElement;
+  const $projectTwo = $portfolioProjects.children[1] as HTMLDivElement;
+
+  window.addEventListener('scroll', () => {
+    let $portfolioSectionScroll: number = $portfolioSection.offsetTop;
+    let displayHeight: number = window.innerHeight;
+
+    if (window.scrollY >= $portfolioSectionScroll - displayHeight + 200) {
+      $portfolioH2.style.transition = 'transform 1s';
+      $portfolioH2.style.transform = 'scale(1)';
+
+      $projectOne.style.transition = 'all 1.5s';
+      $projectOne.style.opacity = '1';
+      $projectOne.style.transform = 'translate(0)';
+
+      $projectTwo.style.transition = 'all 1.5s';
+      $projectTwo.style.opacity = '1';
+      $projectTwo.style.transform = 'translate(0)';
+    }
+  });
 }

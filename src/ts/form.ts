@@ -89,6 +89,38 @@ export default function form() {
 
   // ?-----FORM SEND SECTION-----
 
+  const modalForm = (msg: string, err: boolean, lang: boolean) => {
+    const modalWindow = document.createElement('DIV');
+    const closeBtn = document.createElement('BUTTON');
+    closeBtn.textContent = lang ? 'Cerrar' : 'Close';
+    const body = document.body;
+    modalWindow.classList.add('modalForm');
+    modalWindow.innerHTML = msg;
+    modalWindow.appendChild(closeBtn);
+    if (err) {
+      body.appendChild(modalWindow);
+      modalWindow.style.opacity = '0';
+      modalWindow.style.backgroundColor = '#c4302b';
+      setTimeout(() => {
+        modalWindow.style.transition = 'all .5s';
+        modalWindow.style.opacity = '1';
+      }, 500);
+    } else {
+      body.appendChild(modalWindow);
+      modalWindow.style.opacity = '0';
+      modalWindow.style.backgroundColor = '#60BC7F';
+      setTimeout(() => {
+        modalWindow.style.transition = 'all .5s';
+        modalWindow.style.opacity = '1';
+      }, 500);
+    }
+
+    closeBtn.addEventListener(
+      'click',
+      () => (modalWindow.style.display = 'none')
+    );
+  };
+
   const form = document.getElementById('form') as HTMLFormElement;
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -101,10 +133,19 @@ export default function form() {
       }
     });
     if (res.ok) {
-      alert('mensaje eviado');
+      if (location.pathname === '/') {
+        modalForm('Mensaje enviado correctamente', false, true);
+        form.reset();
+        return;
+      }
+      modalForm('Message sent successfully', false, false);
       form.reset();
     } else {
-      alert('Ha ocurrido un error');
+      if (location.pathname === '/') {
+        modalForm('Ha ocurrido un error', true, true);
+        return;
+      }
+      modalForm('An error has occurred', true, false);
     }
   };
 
